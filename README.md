@@ -2,10 +2,11 @@
 Obj Geral : Escrever um algoritmo de classificação.
 
 Obj esp: Rigor, uso de C e uso de algoritmos básicos.
+
 Palavras chaves:
-Algoritmos de classificação
-conceitos
-Classificar da maneira mais rápida possível é menos simples.
+Algoritmos de classificação;
+conceitos;
+Classificar da maneira mais rápida possível é menos simples;
 
 
 ------------------------------------------------------------------------
