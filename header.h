@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:06:59 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/01 13:17:58 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/01 22:16:41 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,16 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
-int	ft_atoi(const char *nptr);
+typedef struct node
+{
+    int data;
+    struct node *next;
+}   t_list;
+
+int	    ft_atoi(char *str);
+int     verif_num_palavra(char *str);
+void    add_list_next(t_list **a, int value);
 
 #endif
