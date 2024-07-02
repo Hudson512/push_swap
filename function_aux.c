@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:16:23 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/02 07:12:15 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/02 13:18:18 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,15 @@ int	verif_num_palavra(char *str)
 		i++;
 	}
 	return (count_palavra);
+}
+
+int	verif_num_dup(t_list *head, int value)
+{
+	while (head != NULL){
+		if (head->data == value)
+			return (0);
+		else
+			head = head->next;
+	}
+	return (1);
 }
