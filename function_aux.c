@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:16:23 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/01 22:35:26 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/02 07:12:15 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ int	verif_num_palavra(char *str)
 	}
 	i = 0;
 	while (str[i]){
-		if ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'A' && str[i] <= 'Z'))
+		if ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
 		{
-			write(2, "ERROR", 5);
+			write(2, "ERROR\n", 6);
 			exit(1);
 		}
 		i++;

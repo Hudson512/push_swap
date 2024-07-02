@@ -1,13 +1,9 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-OBJ = function_aux.o list_function.o push_swap.o
-DEPS = header.h
 
-%.o: %.c $(DEPS)
-    $(CC) $(CFLAGS) -c -o $@ $<
-
-push_swap: $(OBJ)
-    $(CC) $(CFLAGS) -o $@ $^
+all:
+	gcc -c function_aux.c -o function_aux.o
+	gcc -c list_function.c -o list_function.o
+	gcc -c push_swap.c -o push_swap.o
+	gcc push_swap.o list_function.o function_aux.o -o push_swap.exe
 
 clean:
-    rm -f *.o push_swap
+	rm -f *.o push_swap.exe
