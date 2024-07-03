@@ -62,3 +62,19 @@ rrr : rra e rrb ao mesmo tempo.
 3- Se nenhum parâmetro for especificado, o programa não deve exibir nada e retornar o prompt.
 
 4- Em caso de erro, deve exibir "Error" seguido de um ’\n’ na saída de erro padrão. Erros incluem, por exemplo: alguns argumentos não são inteiros, alguns argumentos são maiores que um inteiro e/ou há duplicatas.
+
+------------------------------------------------------------------------
+						Meu Desenvolvimento
+1º Receber os argumentos [Converter para inteiro, verificar os erros (Duplicados, valores diferentes de números)].
+
+2º Adicionar na pilha os argumentos (Caso passem na verificação).
+
+3º Verficar se a pilha está ordenada; 
+	Se estiver não faça nada; 
+	Se não estiver ordena.
+
+4º Criar as funções de ordenação segundo as regras passadas.
+	sa, sb e ss -> Feito.
+	pa e pb -> Feito.
+	ra e rb -> Feito.
+	rra, rrb e rrr -> Feito.

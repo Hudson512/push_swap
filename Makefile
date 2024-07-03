@@ -1,10 +1,29 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/07/03 10:01:52 by hmateque          #+#    #+#              #
+#    Updated: 2024/07/03 10:02:55 by hmateque         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-all:
-	gcc -c function_aux.c -o function_aux.o
-	gcc -c ft_split.c -o ft_split.o
-	gcc -c list_function.c -o list_function.o
-	gcc -c push_swap.c -o push_swap.o
-	gcc push_swap.o list_function.o function_aux.o ft_split.o -o push_swap.exe
+NAME = push_swap.exe
+CC = gcc
+FLAGS = #-Wall -Wextra -Werror
+SOURCE  =  srcs/*.c \
+           *.c \
+
+$(NAME):
+	$(CC) $(FLAGS) $(SOURCE) -Iincludes -o $(NAME)
+all: $(NAME)
 
 clean:
-	rm -f *.o push_swap.exe
+	@rm -rf srcs/*.o
+	@rm -rf *.o
+fclean: clean
+	@rm -rf $(NAME)
+re: fclean all
+.PHONY: all clean fclean re

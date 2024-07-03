@@ -6,11 +6,11 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 11:58:53 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/02 12:20:57 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/03 08:30:58 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../header.h"
 
 static void	ft_freeup(char *strs)
 {
