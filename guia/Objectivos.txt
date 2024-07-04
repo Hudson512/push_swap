@@ -78,3 +78,24 @@ rrr : rra e rrb ao mesmo tempo.
 	pa e pb -> Feito.
 	ra e rb -> Feito.
 	rra, rrb e rrr -> Feito.
+
+5º Criar uma logica para odernar a pilha. 
+	# valores para teste: 5 2 7 1 6 3 9 4 8;
+
+	1º Verificar o tamanho da pilha 'a', se é igual a 3;
+		Caso seja:
+			- Não é necessário fazer push;
+			- Se o tamanho for 3, preciso apenas de 1 operação para classificar a pilha.
+			OBS: Com excesão a dois casos;
+				1º Se estiver classificada de ordem decrescente.
+					Ex: 3-2-1
+				2º Se a sequência em que o maior número e o segundo maior número trocam de lugar.
+					Ex: 1-3-2
+
+	2º Uma lista com + de 3 elemento:
+		- Empurrar os dois primeiros elemento do topo da pilha 'a' para a pilha 'b'. Sem verificar nada;
+		- Contar e calcular para cada número um por um.
+			- Calcular quantas operações seriam necessárias para empurrar o número para a posição correta na pilha 'b'.
+			
+
+
