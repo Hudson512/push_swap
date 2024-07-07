@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:51:09 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/03 11:05:49 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/07 13:49:57 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	ft_sb(t_list **head)
 
 void	ft_ss(t_list **a, t_list **b)
 {
-	ft_sa(a);
-	ft_sb(b);
+	ft_swap(a);
+	ft_swap(b);
 	write(1, "ss\n", 3);
 }
 

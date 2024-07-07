@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 21:44:19 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/03 10:33:43 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/07 13:32:25 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,26 @@ void    add_list_first(t_list **head, int data)
     new->next = *head;
 
     *head = new;
+}
+
+int    count_list(t_list *head)
+{
+    int i;
+
+    i = 0;
+    while (head != NULL)
+    {
+        head = head->next;
+        i++;
+    }
+    return (i);
+}
+
+void    print_list(t_list *head)
+{
+    while(head != NULL)
+    {
+        printf("%d\n", head->data);
+        head = head->next;
+    }
 }

@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:25:36 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/03 18:30:22 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/07 14:18:01 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,16 @@ int	main(int argc, char *argv[])
 		}
 		if (verif_ordem_list(a))
 		{
-			//ft_sa(&a);
-			//ft_pb(&a, &b);
-			//ft_ra(&a);
-			ft_rra(&a);
+			ft_ordenacao(&a, &b);
 		}
 		else
 		{
 			printf("Verif_ordem_list - Ordenada\n");
 		}
-
-		printf("Pilha - a\n");
-		while(a != NULL){
-			printf("%d\n", a->data);
-			a = a->next;
-		}
-		printf("Pilha - b\n");
-		while(b != NULL){
-			printf("%d\n", b->data);
-			b = b->next;
-		}
+		printf("Pilha a\n");
+		print_list(a);
+		printf("Pilha b\n");
+		print_list(b);
 	}
 	return 0;
 }

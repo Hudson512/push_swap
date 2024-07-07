@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:51:09 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/03 17:49:19 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/07 13:50:40 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_rb(t_list **head)
 
 void	ft_rr(t_list **a, t_list **b)
 {
-	ft_ra(a);
-	ft_rb(b);
+	ft_rotate(a);
+	ft_rotate(b);
 	write(1, "rr\n", 3);
 }
