@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ordenacao_1_funct.c                                :+:      :+:    :+:   */
+/*   move_funct.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:15:14 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/03 18:34:06 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/13 23:33:27 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ void	ft_swap(t_list **head)
 	elem2->next = elem1;
 	*head = elem2;
 }
-/* 
-	p1 - Elemento a ser removido
-	p2 - Elemento a ser adicionado
-*/
+
 void	ft_push(t_list **p1, t_list **p2)
 {
 	t_list	*elem_p1;

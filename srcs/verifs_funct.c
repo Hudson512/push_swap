@@ -6,13 +6,13 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:16:23 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/03 09:31:15 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/11 12:45:41 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int	verif_num_palavra(char *str)
+int	checker_num_palavra(char *str)
 {
 	int	count_palavra;
 	int	in_palavra;
@@ -35,7 +35,7 @@ int	verif_num_palavra(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
+		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == 32))
 		{
 			write(2, "ERROR\n", 6);
 			exit(1);
@@ -45,19 +45,22 @@ int	verif_num_palavra(char *str)
 	return (count_palavra);
 }
 
-int	verif_num_dup(t_list *head, int value)
+int	checker_num_dup(t_list *head, int value)
 {
 	while (head != NULL)
 	{
 		if (head->data == value)
-			return (1);
+		{
+			write(2, "ERROR\n", 6);
+			exit(1);
+		}
 		else
 			head = head->next;
 	}
-	return (0);
+	return (1);
 }
 
-int		verif_ordem_list(t_list *head)
+int		checker_order_list(t_list *head)
 {
 	while (head->next != NULL)
 	{

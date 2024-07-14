@@ -10,4 +10,4 @@ num3=$((RANDOM % 100 + 1))
 echo "Números gerados: $num1 $num2 $num3"
 
 # Executa o programa push_swap.exe com os números gerados
-./push_swap.exe "$num1 $num2 $num3"
+./push_swap "$num1 $num2 $num3"
