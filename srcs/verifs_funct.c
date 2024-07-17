@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:16:23 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/11 12:45:41 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/16 10:47:18 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,25 @@ int	checker_num_dup(t_list *head, int value)
 
 int		checker_order_list(t_list *head)
 {
+	if (head == NULL)
+		return (0);
 	while (head->next != NULL)
 	{
 		if (head->data  < head->next->data)
+			head = head->next;
+		else
+			return (1);
+	}
+	return (0);
+}
+
+int		checker_order_list_2(t_list *head)
+{
+	if (head == NULL)
+		return (0);
+	while (head->next != NULL)
+	{
+		if (head->data  > head->next->data)
 			head = head->next;
 		else
 			return (1);

@@ -6,16 +6,16 @@
 #    By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/03 10:01:52 by hmateque          #+#    #+#              #
-#    Updated: 2024/07/11 12:20:36 by hmateque         ###   ########.fr        #
+#    Updated: 2024/07/16 15:27:19 by hmateque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = gcc
-FLAGS = #-Wall -Wextra -Werror
+FLAGS = -Werror -Wall -Wextra -g
 SOURCE  =  srcs/*.c \
            *.c \
-
+           
 $(NAME):
 	$(CC) $(FLAGS) $(SOURCE) -Iincludes -o $(NAME)
 all: $(NAME)

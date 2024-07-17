@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 21:44:19 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/14 04:33:21 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/17 10:29:56 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ void    add_list_first(t_list **head, int data)
     *head = new;
 }
 
+t_list  *last_node(t_list *stack)
+{
+    while (stack->next)
+        stack = stack->next;
+    return (stack);
+}
+
 int     count_list(t_list *head)
 {
     int i;
@@ -71,6 +78,43 @@ int     find_node_index(t_list *head, int value)
             head = head->next;
         i++;
     }
+    return (0);
+}
+
+int     find_max(t_list *head)
+{
+    t_list *current;
+    int max_value;
+
+    if (head == NULL)
+        return (0);
+    max_value = head->data;
+    current = head->next;
+    while (current != NULL)
+    {
+        if (current->data > max_value)
+            max_value = current->data;
+        current = current->next;
+    }
+    return max_value;
+}
+
+int     find_min(t_list *head)
+{
+    t_list *current;
+    int min_value;
+
+    if (head == NULL)
+        return (0);
+    min_value = head->data;
+    current = head->next;
+    while (current != NULL)
+    {
+        if (current->data < min_value)
+            min_value = current->data;
+        current = current->next;
+    }
+    return min_value;
 }
 
 void    print_list(t_list *head)
@@ -79,8 +123,8 @@ void    print_list(t_list *head)
     {
         printf("-------\n");
         printf("%d\n", head->data);
-        printf("%d\n", head->num_oper_a);
-        printf("%d\n", head->num_oper_b);
+        // printf("%d\n", head->num_oper_a);
+        // printf("%d\n", head->num_oper_b);
         printf("-------\n");
         head = head->next;
     }

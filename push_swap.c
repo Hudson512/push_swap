@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:25:36 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/11 12:41:13 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/17 11:04:42 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ int	ft_atoi(char *str)
 
 	i = 0;
 	sign = 1;
+	nb = 0;
+	if (str == NULL)
+		return (0);
 	while (str[i] < 33)
 		i++;
+	if (str[i] == '-')
+		sign *= -1;
 	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign *= -1;
 		i++;
-	}
-	nb = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		nb = nb * 10 + str[i] - '0';
@@ -71,14 +71,43 @@ int	main(int argc, char *argv[])
 			}
 			i++;
 		}
-		if (checker_order_list(a))
-			ft_ordering(&a, &b);
+		if (checker_order_list(a) == 1)
+		{
+			if (count_list(a) > 3)
+			{
+				ft_pb(&a, &b);
+				ft_pb(&a, &b);
+			}
+			
+			while (count_list(a) >= 3 && checker_order_list(a) == 1)
+				ft_ordering_b(&a, &b);
+			if (checker_order_list_2(b) == 1)
+			{
+				int value_max = find_max(b);
+				while (checker_order_list_2(b) ==  1)
+					order_stack(value_max, &b);
+			}
+			// printf("Pilha a\n");
+			// print_list(a);
+			// printf("Pilha b\n");
+			// print_list(b);
+			ft_ordering_a(&b, &a);
+			// if (checker_order_list(a) == 1){
+			// 	int value_min = find_min(a);
+			// 	while (checker_order_list(a) ==  1)
+			// 		order_stack_a(value_min, &a);
+			// }
+		}	
 		else
 			printf("Verif_ordem_list - Ordenada\n");
-		printf("Pilha a\n");
-		print_list(a);
-		printf("Pilha b\n");
-		print_list(b);
+		// printf("Pilha a\n");
+		// print_list(a);
+		// printf("Pilha b\n");
+		// print_list(b);
+		// if (checker_order_list(a))
+		// 	printf("Ordenado\n");
+		// else
+		// 	printf("Nao Ordenado\n");
 	}
 	return 0;
 }
