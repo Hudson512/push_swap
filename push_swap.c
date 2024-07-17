@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:25:36 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/17 11:04:42 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/17 12:37:14 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,20 +92,25 @@ int	main(int argc, char *argv[])
 			// printf("Pilha b\n");
 			// print_list(b);
 			ft_ordering_a(&b, &a);
-			// if (checker_order_list(a) == 1){
-			// 	int value_min = find_min(a);
-			// 	while (checker_order_list(a) ==  1)
-			// 		order_stack_a(value_min, &a);
-			// }
-		}	
-		else
-			printf("Verif_ordem_list - Ordenada\n");
+			if (checker_order_list(a) == 1){
+				int value_min = find_min(a);
+				while (checker_order_list(a) ==  1)
+					order_stack_a(value_min, &a);
+			}
+		}
 		// printf("Pilha a\n");
 		// print_list(a);
 		// printf("Pilha b\n");
 		// print_list(b);
-		// if (checker_order_list(a))
-		// 	printf("Ordenado\n");
+		if (checker_order_list(a)){
+			int value_min = find_min(a);
+			while (checker_order_list(a) ==  1)
+				order_stack_a(value_min, &a);
+		}
+		// printf("Pilha a\n");
+		// print_list(a);
+		// printf("Pilha b\n");
+		// print_list(b);
 		// else
 		// 	printf("Nao Ordenado\n");
 	}
