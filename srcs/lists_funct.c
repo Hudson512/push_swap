@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 21:44:19 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/17 10:29:56 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/18 17:33:54 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void    add_list_next(t_list **head, int value)
     t_list  *new;
     
     new = (t_list *)malloc(sizeof(t_list));
+    if (new == NULL)
+        return;
     new->data = value;
     new->num_oper_a = 0;
     new->num_oper_b = 0;
@@ -37,6 +39,8 @@ void    add_list_first(t_list **head, int data)
     t_list  *new;
 
     new = (t_list *)malloc(sizeof(t_list));
+    if (new == NULL)
+        return;
     new->data = data;
     new->num_oper_a = 0;
     new->num_oper_b = 0;
@@ -127,5 +131,33 @@ void    print_list(t_list *head)
         // printf("%d\n", head->num_oper_b);
         printf("-------\n");
         head = head->next;
+    }
+}
+
+void    libera_stack(t_list **a)
+{
+    t_list  *temp;
+
+    if (a == NULL || *a == NULL)
+        return;
+    while (*a)
+    {
+        temp = *a;
+        *a = (*a)->next;
+        free(temp);
+    }
+}
+
+void    libera_matrix(char **str)
+{
+    int i;
+
+    if (str == NULL || str[0] == NULL)
+        return;
+    i = 0;
+    while (str[i])
+    {
+        free(str[i]);
+        i++;
     }
 }

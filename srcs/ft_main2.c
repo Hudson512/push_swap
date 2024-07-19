@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 13:10:58 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/17 10:30:20 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/19 10:24:26 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 void	ft_ordering_b(t_list **a, t_list **b)
 {
 	t_list	*p_a;
+	t_list	*p_b;
 	int		num_barato;
-	static int i = 0;
 
-	
 	if (count_list(*a) == 3)
 	{
 		p_a = *a;
@@ -51,33 +50,22 @@ void	ft_ordering_b(t_list **a, t_list **b)
 	else if (count_list(*a) > 3)
 	{
 		num_barato = ft_num_barato(a, b);
-		// printf("Pilha a\n");
-		// print_list(*a);
-		// printf("Pilha b\n");
-		// print_list(*b);
 		p_a = *a;
 		while (p_a)
 		{
 			if (p_a->data == num_barato)
-			{
-				move_stack_b_step(p_a->data, p_a->num_oper_b, b);
-				move_stack_a_step(p_a->data, p_a->num_oper_a, a, b);
-			}
+				p_b = p_a;
 			p_a = p_a->next;
 		}
-		i++;
-		/*printf("Pilha a\n");
-		print_list(*a);
-		printf("Pilha b\n");
-		print_list(*b);
-		if (i == 5)
-			exit(1);*/
+		move_stack_b_step(p_b->data, p_b->num_oper_b, b);
+		move_stack_a_step(p_b->data, p_b->num_oper_a, a, b);
 	}
 }
 
 void	ft_ordering_a(t_list **b, t_list **a)
 {
 	t_list	*p_a;
+	t_list	*p_b;
 	int		num_barato;
 	
 	if (count_list(*b) > 0)
@@ -87,12 +75,11 @@ void	ft_ordering_a(t_list **b, t_list **a)
 		while (p_a)
 		{
 			if (p_a->data == num_barato)
-			{
-				move_stack_b_step_2(p_a->data, p_a->num_oper_b, a);
-				move_stack_a_step_2(p_a->data, p_a->num_oper_a, b, a);
-			}
+				p_b = p_a;
 			p_a = p_a->next;
 		}
+		move_stack_b_step_2(p_b->data, p_b->num_oper_b, a);
+		move_stack_a_step_2(p_b->data, p_b->num_oper_a, b, a);
 		ft_ordering_a(b, a);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 15:39:24 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/17 11:05:51 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/18 17:35:26 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,10 @@ void	move_stack_a_step(int value, int m_a, t_list **a, t_list **b)
 	{
 		if (value == (*a)->data)
 			ft_pb(a, b);
-		else if (ft_rot_or_rrot(value, *a) == 1){
+		else if (ft_rot_or_rrot(value, *a) == 1)
 			ft_ra(a);
-		}
-		else if (ft_rot_or_rrot(value, *a) == 2){
+		else if (ft_rot_or_rrot(value, *a) == 2)
 			ft_rra(a);
-		}
 		m_a--;
 	}
 	
@@ -176,12 +174,10 @@ void	move_stack_a_step_2(int value, int m_a, t_list **b, t_list **a)
 	{
 		if (value == (*b)->data)
 			ft_pa(b, a);
-		else if (ft_rot_or_rrot(value, *b) == 1){
+		else if (ft_rot_or_rrot(value, *b) == 1)
 			ft_rb(b);
-		}
-		else if (ft_rot_or_rrot(value, *b) == 2){
+		else if (ft_rot_or_rrot(value, *b) == 2)
 			ft_rrb(b);
-		}
 		m_a--;
 	}
 	

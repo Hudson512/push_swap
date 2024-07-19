@@ -6,17 +6,17 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:25:36 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/17 12:37:14 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/19 14:42:31 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	ft_atoi(char *str)
+long	ft_atoi(char *str)
 {
-	int	i;
-	int	sign;
-	int	nb;
+	int		i;
+	int		sign;
+	long	nb;
 
 	i = 0;
 	sign = 1;
@@ -37,43 +37,89 @@ int	ft_atoi(char *str)
 	return (nb * sign);
 }
 
+int	is_number(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str[i] == '\0')
+		return (0);
+	while (str[i])
+	{
+		while (str[i] == 32 || str[i] == '\t')
+			i++;
+		if (str[i] == '-' || str[i] == '+')
+			i++;
+		if (!isdigit(str[i]) || str[i + 1] == '+' || str[i + 1] == '-')
+			return (0);
+		i++;
+	}
+	return 1;
+}
+
+int	value_limit(long nbr)
+{
+	if (nbr > 2147483647 || nbr < INT_MIN)
+		print_error();
+	return (1);
+}
+
+void	print_error(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
 int	main(int argc, char *argv[])
 {
 	int	i;
-	int	j;
 	int	count_p;
-	char	**arr;
 	t_list	*a;
 	t_list	*b;
 	
-	if (argc > 1){
+	if (argc > 1)
+	{
 		a = NULL;
 		b = NULL;
 		i = 1;
 		while (i < argc)
 		{
+			if (!is_number(argv[i]))
+				print_error();
 			count_p = checker_num_palavra(argv[i]);
 			if (count_p == 1)
 			{
-				if (checker_num_dup(a, ft_atoi(argv[i])))
-					add_list_next(&a, ft_atoi(argv[i]));	
+				// if (checker_num_dup(a, (int)ft_atoi(argv[i])) && value_limit(ft_atoi(argv[i])))
+				// 	add_list_next(&a, (int)ft_atoi(argv[i]));
+				pre_add(&a, argv[i]);
 			}
 			else if (count_p > 1)
 			{
-				arr = ft_split(argv[i], 32);
-				j = 0;
-				while (j < count_p)
-				{
-					if (checker_num_dup(a, ft_atoi(arr[j])))
-						add_list_next(&a, ft_atoi(arr[j]));
-					j++;
-				}
+				// arr = ft_split(argv[i], 32);
+				// j = 0;
+				// while (j < count_p)
+				// {
+				// 	if (checker_num_dup(a, (int)ft_atoi(arr[j])) && value_limit(ft_atoi(arr[j])))
+				// 		add_list_next(&a, (int)ft_atoi(arr[j]));
+				// 	j++;
+				// }
+				pre_add_2(&a, argv[i], count_p);
 			}
 			i++;
 		}
+		
 		if (checker_order_list(a) == 1)
 		{
-			if (count_list(a) > 3)
+			if (count_list(a) == 2)
+			{
+				if (checker_order_list(a))
+					ft_sa(&a);	
+			}
+			else if (count_list(a) == 4)
+			{
+				ft_pb(&a, &b);
+			}
+			else if (count_list(a) > 3)
 			{
 				ft_pb(&a, &b);
 				ft_pb(&a, &b);
@@ -87,10 +133,6 @@ int	main(int argc, char *argv[])
 				while (checker_order_list_2(b) ==  1)
 					order_stack(value_max, &b);
 			}
-			// printf("Pilha a\n");
-			// print_list(a);
-			// printf("Pilha b\n");
-			// print_list(b);
 			ft_ordering_a(&b, &a);
 			if (checker_order_list(a) == 1){
 				int value_min = find_min(a);
@@ -98,21 +140,13 @@ int	main(int argc, char *argv[])
 					order_stack_a(value_min, &a);
 			}
 		}
-		// printf("Pilha a\n");
-		// print_list(a);
-		// printf("Pilha b\n");
-		// print_list(b);
 		if (checker_order_list(a)){
 			int value_min = find_min(a);
 			while (checker_order_list(a) ==  1)
 				order_stack_a(value_min, &a);
 		}
-		// printf("Pilha a\n");
-		// print_list(a);
-		// printf("Pilha b\n");
-		// print_list(b);
-		// else
-		// 	printf("Nao Ordenado\n");
+		libera_stack(&a);
+		libera_stack(&b);
 	}
 	return 0;
 }

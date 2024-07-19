@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:16:23 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/16 10:47:18 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/19 14:42:15 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,6 @@ int	checker_num_palavra(char *str)
 		}
 		i++;
 	}
-	i = 0;
-	while (str[i])
-	{
-		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == 32))
-		{
-			write(2, "ERROR\n", 6);
-			exit(1);
-		}
-		i++;
-	}
 	return (count_palavra);
 }
 
@@ -50,10 +40,7 @@ int	checker_num_dup(t_list *head, int value)
 	while (head != NULL)
 	{
 		if (head->data == value)
-		{
-			write(2, "ERROR\n", 6);
-			exit(1);
-		}
+			print_error();
 		else
 			head = head->next;
 	}
@@ -86,4 +73,30 @@ int		checker_order_list_2(t_list *head)
 			return (1);
 	}
 	return (0);
+}
+
+void	pre_add(t_list **a, char *str)
+{
+	if (checker_num_dup(*a, (int)ft_atoi(str)) && value_limit(ft_atoi(str)))
+		add_list_next(a, (int)ft_atoi(str));
+}
+
+void	pre_add_2(t_list **a, char *str, int count_p)
+{
+	char	**arr;
+	int		j;
+
+	arr = ft_split(str, 32);
+	j = 0;
+	while (j < count_p)
+	{
+		if (checker_num_dup(*a, (int)ft_atoi(arr[j])) && value_limit(ft_atoi(arr[j])))
+			add_list_next(a, (int)ft_atoi(arr[j]));
+		j++;
+	}
+	if (arr != NULL)
+	{
+		libera_matrix(arr);
+		free(arr);
+	}
 }
