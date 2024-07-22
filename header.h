@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:06:59 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/19 14:42:10 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/22 15:38:37 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ void	move_stack_a_step_2(int value, int m_a, t_list **b, t_list **a);
 void	move_stack_b_step_2(int nbr, int m_b, t_list **a);
 void	pre_add(t_list **a, char *str);
 void	pre_add_2(t_list **a, char *str, int count_p);
+void	check_and_exec(t_list **a, t_list **b);
 char	**ft_split(char const *str, char c);
 #endif

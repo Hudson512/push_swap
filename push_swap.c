@@ -6,7 +6,7 @@
 /*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:25:36 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/19 14:42:31 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/22 15:40:47 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,43 +88,15 @@ int	main(int argc, char *argv[])
 				print_error();
 			count_p = checker_num_palavra(argv[i]);
 			if (count_p == 1)
-			{
-				// if (checker_num_dup(a, (int)ft_atoi(argv[i])) && value_limit(ft_atoi(argv[i])))
-				// 	add_list_next(&a, (int)ft_atoi(argv[i]));
 				pre_add(&a, argv[i]);
-			}
 			else if (count_p > 1)
-			{
-				// arr = ft_split(argv[i], 32);
-				// j = 0;
-				// while (j < count_p)
-				// {
-				// 	if (checker_num_dup(a, (int)ft_atoi(arr[j])) && value_limit(ft_atoi(arr[j])))
-				// 		add_list_next(&a, (int)ft_atoi(arr[j]));
-				// 	j++;
-				// }
 				pre_add_2(&a, argv[i], count_p);
-			}
 			i++;
 		}
 		
 		if (checker_order_list(a) == 1)
 		{
-			if (count_list(a) == 2)
-			{
-				if (checker_order_list(a))
-					ft_sa(&a);	
-			}
-			else if (count_list(a) == 4)
-			{
-				ft_pb(&a, &b);
-			}
-			else if (count_list(a) > 3)
-			{
-				ft_pb(&a, &b);
-				ft_pb(&a, &b);
-			}
-			
+			check_and_exec(&a, &b);
 			while (count_list(a) >= 3 && checker_order_list(a) == 1)
 				ft_ordering_b(&a, &b);
 			if (checker_order_list_2(b) == 1)
