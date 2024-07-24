@@ -6,13 +6,13 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 15:39:24 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/24 09:03:10 by codespace        ###   ########.fr       */
+/*   Updated: 2024/07/24 12:40:48 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int		ft_rot_or_rrot(int value, t_list *head)
+int	ft_rot_or_rrot(int value, t_list *head)
 {
 	int	size_list;
 	int	index_node;
@@ -25,7 +25,7 @@ int		ft_rot_or_rrot(int value, t_list *head)
 		return (1);
 }
 
-int		get_stack_a_step(int value, t_list *head)
+int	get_stack_a_step(int value, t_list *head)
 {
 	int	index_node;
 	int	size_list;
@@ -41,9 +41,9 @@ int		get_stack_a_step(int value, t_list *head)
 	return (0);
 }
 
-int		get_stack_b_step(int nbr, t_list *head)
+int	get_stack_b_step(int nbr, t_list *head)
 {
-	t_list *p_b;
+	t_list	*p_b;
 	int		target;
 	int		index_node;
 	int		size_list;
@@ -53,7 +53,8 @@ int		get_stack_b_step(int nbr, t_list *head)
 	size_list = count_list(head);
 	while (p_b)
 	{
-		if (p_b->data < nbr){
+		if (p_b->data < nbr)
+		{
 			if (p_b->data > target)
 				target = p_b->data;
 		}
@@ -66,7 +67,9 @@ int		get_stack_b_step(int nbr, t_list *head)
 			return (index_node);
 		else if (ft_rot_or_rrot(target, head) == 2)
 			return (size_list - index_node);
-	}else{
+	}
+	else
+	{
 		target = find_max(head);
 		index_node = find_node_index(head, target);
 		if (ft_rot_or_rrot(target, head) == 1)
@@ -89,19 +92,19 @@ void	move_stack_a_step(int value, int m_a, t_list **a, t_list **b)
 			ft_rra(a);
 		m_a--;
 	}
-	
 }
 
 void	move_stack_b_step(int nbr, int m_b, t_list **b)
 {
 	t_list *p_b;
-	int		target;
+	int target;
 
 	p_b = *b;
 	target = 0;
 	while (p_b)
 	{
-		if (p_b->data < nbr){
+		if (p_b->data < nbr)
+		{
 			if (p_b->data > target)
 				target = p_b->data;
 		}
@@ -126,5 +129,4 @@ void	move_stack_b_step(int nbr, int m_b, t_list **b)
 		}
 		m_b--;
 	}
-	
 }

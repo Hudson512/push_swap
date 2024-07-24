@@ -6,15 +6,15 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 08:55:23 by codespace         #+#    #+#             */
-/*   Updated: 2024/07/24 09:01:42 by codespace        ###   ########.fr       */
+/*   Updated: 2024/07/24 12:40:08 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int     get_stack_b_step_2(int nbr, t_list *head)
+int	get_stack_b_step_2(int nbr, t_list *head)
 {
-	t_list *p_b;
+	t_list	*p_b;
 	int		target;
 	int		index_node;
 	int		size_list;
@@ -24,7 +24,8 @@ int     get_stack_b_step_2(int nbr, t_list *head)
 	size_list = count_list(head);
 	while (p_b)
 	{
-		if (p_b->data > nbr){
+		if (p_b->data > nbr)
+		{
 			if (p_b->data < target)
 				target = p_b->data;
 		}
@@ -37,7 +38,9 @@ int     get_stack_b_step_2(int nbr, t_list *head)
 			return (index_node);
 		else if (ft_rot_or_rrot(target, head) == 2)
 			return (size_list - index_node);
-	}else{
+	}
+	else
+	{
 		target = find_max(head);
 		index_node = find_node_index(head, target);
 		if (ft_rot_or_rrot(target, head) == 1)
@@ -60,19 +63,19 @@ void	move_stack_a_step_2(int value, int m_a, t_list **b, t_list **a)
 			ft_rrb(b);
 		m_a--;
 	}
-	
 }
 
 void	move_stack_b_step_2(int nbr, int m_b, t_list **a)
 {
-	t_list *p_b;
+	t_list	*p_b;
 	int		target;
 
 	p_b = *a;
 	target = 1000;
 	while (p_b)
 	{
-		if (p_b->data > nbr){
+		if (p_b->data > nbr)
+		{
 			if (p_b->data < target)
 				target = p_b->data;
 		}
@@ -80,10 +83,12 @@ void	move_stack_b_step_2(int nbr, int m_b, t_list **a)
 	}
 	while (m_b != 0)
 	{
-		if (ft_rot_or_rrot(target, *a) == 1){
+		if (ft_rot_or_rrot(target, *a) == 1)
+		{
 			ft_ra(a);
 		}
-		else if (ft_rot_or_rrot(target, *a) == 2){
+		else if (ft_rot_or_rrot(target, *a) == 2)
+		{
 			ft_rra(a);
 		}
 		m_b--;

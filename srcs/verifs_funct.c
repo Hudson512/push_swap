@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verifs_funct.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:16:23 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/22 15:44:53 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/24 12:38:56 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ int	checker_num_dup(t_list *head, int value)
 	return (1);
 }
 
-int		checker_order_list(t_list *head)
+int	checker_order_list(t_list *head)
 {
 	if (head == NULL)
 		return (0);
 	while (head->next != NULL)
 	{
-		if (head->data  < head->next->data)
+		if (head->data < head->next->data)
 			head = head->next;
 		else
 			return (1);

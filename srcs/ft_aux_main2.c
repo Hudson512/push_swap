@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 09:05:52 by codespace         #+#    #+#             */
-/*   Updated: 2024/07/24 11:19:28 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/24 12:39:37 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,28 @@ void	move_list(t_list **a)
 	p_a = *a;
 	if (checker_order_list(p_a))
 	{
-		if (p_a->data > p_a->next->data 
-				&& p_a->next->data > p_a->next->next->data)
+		if (p_a->data > p_a->next->data
+			&& p_a->next->data > p_a->next->next->data)
 		{
 			ft_ra(a);
 			ft_sa(a);
 		}
-		else if ((p_a->data < p_a->next->data && p_a->data < p_a->next->next->data) 
-				&& (p_a->next->data > p_a->next->next->data))
+		else if ((p_a->data < p_a->next->data
+				&& p_a->data < p_a->next->next->data)
+			&& (p_a->next->data > p_a->next->next->data))
 		{
 			ft_rra(a);
 			ft_sa(a);
 		}
-		else if (p_a->data > p_a->next->data && p_a->data < p_a->next->next->data)
+		else if (p_a->data > p_a->next->data
+			&& p_a->data < p_a->next->next->data)
 			ft_sa(a);
-		else if (p_a->data < p_a->next->data && p_a->data > p_a->next->next->data)
+		else if (p_a->data < p_a->next->data
+			&& p_a->data > p_a->next->next->data)
 			ft_rra(a);
-		else if (p_a->data > p_a->next->data && p_a->next->data < p_a->next->next->data)
+		else if (p_a->data > p_a->next->data
+			&& p_a->next->data < p_a->next->next->data)
 			ft_ra(a);
 	}
 }
+
