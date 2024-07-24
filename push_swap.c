@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:25:36 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/22 15:40:47 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/24 16:59:54 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ int	is_number(char *str)
 			i++;
 		if (str[i] == '-' || str[i] == '+')
 			i++;
-		if (!isdigit(str[i]) || str[i + 1] == '+' || str[i + 1] == '-')
+		if (!ft_isdigit(str[i]) || str[i + 1] == '+' || str[i + 1] == '-')
 			return (0);
 		i++;
 	}
-	return 1;
+	return (1);
 }
 
 int	value_limit(long nbr)
@@ -72,17 +72,17 @@ void	print_error(void)
 
 int	main(int argc, char *argv[])
 {
-	int	i;
-	int	count_p;
+	int		i;
+	int		count_p;
 	t_list	*a;
 	t_list	*b;
-	
+
 	if (argc > 1)
 	{
 		a = NULL;
 		b = NULL;
-		i = 1;
-		while (i < argc)
+		i = 0;
+		while (++i < argc)
 		{
 			if (!is_number(argv[i]))
 				print_error();
@@ -91,34 +91,10 @@ int	main(int argc, char *argv[])
 				pre_add(&a, argv[i]);
 			else if (count_p > 1)
 				pre_add_2(&a, argv[i], count_p);
-			i++;
 		}
-		
-		if (checker_order_list(a) == 1)
-		{
-			check_and_exec(&a, &b);
-			while (count_list(a) >= 3 && checker_order_list(a) == 1)
-				ft_ordering_b(&a, &b);
-			if (checker_order_list_2(b) == 1)
-			{
-				int value_max = find_max(b);
-				while (checker_order_list_2(b) ==  1)
-					order_stack(value_max, &b);
-			}
-			ft_ordering_a(&b, &a);
-			if (checker_order_list(a) == 1){
-				int value_min = find_min(a);
-				while (checker_order_list(a) ==  1)
-					order_stack_a(value_min, &a);
-			}
-		}
-		if (checker_order_list(a)){
-			int value_min = find_min(a);
-			while (checker_order_list(a) ==  1)
-				order_stack_a(value_min, &a);
-		}
+		screening_funct(&a, &b, 0, 0);
 		libera_stack(&a);
 		libera_stack(&b);
 	}
-	return 0;
+	return (0);
 }

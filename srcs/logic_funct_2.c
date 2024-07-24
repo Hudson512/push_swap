@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   logic_funct_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmateque <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 14:01:50 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/24 14:03:20 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/24 16:09:16 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ int	get_stack_b_step_2(int nbr, t_list *head)
 	t_list	*p_b;
 	int		target;
 	int		index_node;
-	int		size_list;
 
 	p_b = head;
 	target = 1000;
-	size_list = count_list(head);
 	while (p_b)
 	{
 		if (p_b->data > nbr)
@@ -34,19 +32,7 @@ int	get_stack_b_step_2(int nbr, t_list *head)
 	if (target != 0)
 	{
 		index_node = find_node_index(head, target);
-		if (ft_rot_or_rrot(target, head) == 1)
-			return (index_node);
-		else if (ft_rot_or_rrot(target, head) == 2)
-			return (size_list - index_node);
-	}
-	else
-	{
-		target = find_max(head);
-		index_node = find_node_index(head, target);
-		if (ft_rot_or_rrot(target, head) == 1)
-			return (index_node);
-		else if (ft_rot_or_rrot(target, head) == 2)
-			return (size_list - index_node);
+		return (move_rot_or_rrot(head, target, index_node));
 	}
 	return (0);
 }
@@ -84,13 +70,9 @@ void	move_stack_b_step_2(int nbr, int m_b, t_list **a)
 	while (m_b != 0)
 	{
 		if (ft_rot_or_rrot(target, *a) == 1)
-		{
 			ft_ra(a);
-		}
 		else if (ft_rot_or_rrot(target, *a) == 2)
-		{
 			ft_rra(a);
-		}
 		m_b--;
 	}
 }

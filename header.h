@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:06:59 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/24 09:09:38 by codespace        ###   ########.fr       */
+/*   Updated: 2024/07/24 17:00:36 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-# include <ctype.h>
 # include <limits.h>
 
 typedef struct node
@@ -28,6 +27,7 @@ typedef struct node
 }	t_list;
 t_list	*last_node(t_list *stack);
 int		value_limit(long nbr);
+int		ft_isdigit(int c);
 int		is_number(char *str);
 long	ft_atoi(char *str);
 int		checker_num_palavra(char *str);
@@ -44,7 +44,13 @@ int		ft_num_barato_2(t_list **a, t_list **b);
 int		find_max(t_list *head);
 int		find_min(t_list *head);
 int		checker_order_list_2(t_list *head);
+int		move_rot_or_rrot(t_list *head, int target, int index_node);
+int		move_rot_or_rrot_2(t_list *head, int target, int index_node);
+void	screening_funct(t_list **a, t_list **b, int value_max, int value_min);
+void	move_rot_or_rrot_3(int target, t_list **b);
 void	move_list(t_list **a);
+void	rra_sa(t_list **a);
+void	ra_sa(t_list **a);
 void	print_error(void);
 void	libera_matrix(char **str);
 void	libera_stack(t_list **a);

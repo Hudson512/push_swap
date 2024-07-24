@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   logic_funct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmateque <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 14:05:45 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/24 14:07:09 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/24 16:36:48 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,9 @@ int	get_stack_b_step(int nbr, t_list *head)
 	t_list	*p_b;
 	int		target;
 	int		index_node;
-	int		size_list;
 
 	p_b = head;
 	target = 0;
-	size_list = count_list(head);
 	while (p_b)
 	{
 		if (p_b->data < nbr)
@@ -63,20 +61,10 @@ int	get_stack_b_step(int nbr, t_list *head)
 	if (target != 0)
 	{
 		index_node = find_node_index(head, target);
-		if (ft_rot_or_rrot(target, head) == 1)
-			return (index_node);
-		else if (ft_rot_or_rrot(target, head) == 2)
-			return (size_list - index_node);
+		return (move_rot_or_rrot(head, target, index_node));
 	}
 	else
-	{
-		target = find_max(head);
-		index_node = find_node_index(head, target);
-		if (ft_rot_or_rrot(target, head) == 1)
-			return (index_node);
-		else if (ft_rot_or_rrot(target, head) == 2)
-			return (size_list - index_node);
-	}
+		return (move_rot_or_rrot_2(head, target, 0));
 	return (0);
 }
 
@@ -113,19 +101,11 @@ void	move_stack_b_step(int nbr, int m_b, t_list **b)
 	while (m_b != 0)
 	{
 		if (target != 0)
-		{
-			if (ft_rot_or_rrot(target, *b) == 1)
-				ft_rb(b);
-			else if (ft_rot_or_rrot(target, *b) == 2)
-				ft_rrb(b);
-		}
+			move_rot_or_rrot_3(target, b);
 		else
 		{
 			target = find_max(*b);
-			if (ft_rot_or_rrot(target, *b) == 1)
-				ft_rb(b);
-			else if (ft_rot_or_rrot(target, *b) == 2)
-				ft_rrb(b);
+			move_rot_or_rrot_3(target, b);
 		}
 		m_b--;
 	}
