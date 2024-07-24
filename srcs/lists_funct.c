@@ -2,14 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   lists_funct.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2024/07/24 12:34:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/07/24 12:34:27 by codespace        ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hmateque <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/24 13:44:38 by hmateque          #+#    #+#             */
+/*   Updated: 2024/07/24 13:47:37 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +14,8 @@
 
 void	add_list_next(t_list **head, int value)
 {
-	t_list  *new;
-	t_list  *current;
+	t_list	*new;
+	t_list	*current;
 
 	new = (t_list *)malloc(sizeof(t_list));
 	if (new == NULL)
@@ -40,7 +37,7 @@ void	add_list_next(t_list **head, int value)
 
 void	add_list_first(t_list **head, int data)
 {
-	t_list *new;
+	t_list	*new;
 
 	new = (t_list *)malloc(sizeof(t_list));
 	if (new == NULL)
@@ -49,7 +46,6 @@ void	add_list_first(t_list **head, int data)
 	new->num_oper_a = 0;
 	new->num_oper_b = 0;
 	new->next = *head;
-
 	*head = new;
 }
 
@@ -62,7 +58,7 @@ t_list	*last_node(t_list *stack)
 
 int	count_list(t_list *head)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (head != NULL)
@@ -79,8 +75,6 @@ void	print_list(t_list *head)
 	{
 		printf("-------\n");
 		printf("%d\n", head->data);
-		// printf("%d\n", head->num_oper_a);
-		// printf("%d\n", head->num_oper_b);
 		printf("-------\n");
 		head = head->next;
 	}

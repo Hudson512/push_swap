@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_main2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: hmateque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/07 13:10:58 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/24 12:39:27 by codespace        ###   ########.fr       */
+/*   Created: 2024/07/24 13:52:37 by hmateque          #+#    #+#             */
+/*   Updated: 2024/07/24 13:55:39 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ int	ft_num_barato(t_list **a, t_list **b)
 
 int	ft_num_barato_2(t_list **a, t_list **b)
 {
-	t_list *temp;
-	int barato_a;
-	int num_barato;
+	t_list	*temp;
+	int		barato_a;
+	int		num_barato;
 
 	temp = *a;
 	while (temp)

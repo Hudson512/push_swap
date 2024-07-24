@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   logic_funct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: hmateque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 15:39:24 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/24 12:40:48 by codespace        ###   ########.fr       */
+/*   Created: 2024/07/24 14:05:45 by hmateque          #+#    #+#             */
+/*   Updated: 2024/07/24 14:07:09 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ void	move_stack_a_step(int value, int m_a, t_list **a, t_list **b)
 
 void	move_stack_b_step(int nbr, int m_b, t_list **b)
 {
-	t_list *p_b;
-	int target;
+	t_list	*p_b;
+	int		target;
 
 	p_b = *b;
 	target = 0;

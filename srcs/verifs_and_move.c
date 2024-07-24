@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verifs_and_move.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: hmateque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/22 15:35:01 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/24 12:38:20 by codespace        ###   ########.fr       */
+/*   Created: 2024/07/24 13:49:06 by hmateque          #+#    #+#             */
+/*   Updated: 2024/07/24 13:49:56 by hmateque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	pre_add(t_list **a, char *str)
 
 void	pre_add_2(t_list **a, char *str, int count_p)
 {
-	char **arr;
-	int j;
+	char	**arr;
+	int		j;
 
 	arr = ft_split(str, 32);
 	j = 0;
