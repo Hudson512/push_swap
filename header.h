@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 13:06:59 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/22 15:38:37 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/24 09:09:38 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int		ft_num_barato_2(t_list **a, t_list **b);
 int		find_max(t_list *head);
 int		find_min(t_list *head);
 int		checker_order_list_2(t_list *head);
+void	move_list(t_list **a);
 void	print_error(void);
 void	libera_matrix(char **str);
 void	libera_stack(t_list **a);
