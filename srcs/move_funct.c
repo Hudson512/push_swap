@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_funct.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 09:15:14 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/16 16:50:52 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/24 09:05:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	ft_rotate(t_list **p1)
 	tmp1->next = NULL;
 	*p1 = tmp2;
 }
-
 
 void	ft_reverse_rotate(t_list **stack)
 {

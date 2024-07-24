@@ -69,58 +69,6 @@ int     count_list(t_list *head)
     return (i);
 }
 
-int     find_node_index(t_list *head, int value)
-{
-    int i;
-
-    i = 0;
-    while (head)
-    {
-        if (head->data == value)
-            return (i);
-        else
-            head = head->next;
-        i++;
-    }
-    return (0);
-}
-
-int     find_max(t_list *head)
-{
-    t_list *current;
-    int max_value;
-
-    if (head == NULL)
-        return (0);
-    max_value = head->data;
-    current = head->next;
-    while (current != NULL)
-    {
-        if (current->data > max_value)
-            max_value = current->data;
-        current = current->next;
-    }
-    return max_value;
-}
-
-int     find_min(t_list *head)
-{
-    t_list *current;
-    int min_value;
-
-    if (head == NULL)
-        return (0);
-    min_value = head->data;
-    current = head->next;
-    while (current != NULL)
-    {
-        if (current->data < min_value)
-            min_value = current->data;
-        current = current->next;
-    }
-    return min_value;
-}
-
 void    print_list(t_list *head)
 {
     while(head != NULL)
@@ -131,33 +79,5 @@ void    print_list(t_list *head)
         // printf("%d\n", head->num_oper_b);
         printf("-------\n");
         head = head->next;
-    }
-}
-
-void    libera_stack(t_list **a)
-{
-    t_list  *temp;
-
-    if (a == NULL || *a == NULL)
-        return;
-    while (*a)
-    {
-        temp = *a;
-        *a = (*a)->next;
-        free(temp);
-    }
-}
-
-void    libera_matrix(char **str)
-{
-    int i;
-
-    if (str == NULL || str[0] == NULL)
-        return;
-    i = 0;
-    while (str[i])
-    {
-        free(str[i]);
-        i++;
     }
 }

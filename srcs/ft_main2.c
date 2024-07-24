@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_main2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmateque <hmateque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 13:10:58 by hmateque          #+#    #+#             */
-/*   Updated: 2024/07/19 10:24:26 by hmateque         ###   ########.fr       */
+/*   Updated: 2024/07/24 09:11:51 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,34 +19,7 @@ void	ft_ordering_b(t_list **a, t_list **b)
 	int		num_barato;
 
 	if (count_list(*a) == 3)
-	{
-		p_a = *a;
-		if (checker_order_list(p_a)){
-			if (p_a->data > p_a->next->data && p_a->next->data > p_a->next->next->data)
-			{
-				ft_ra(a);
-				ft_sa(a);
-			}
-			else if ((p_a->data < p_a->next->data && p_a->data < p_a->next->next->data) 
-				&& (p_a->next->data > p_a->next->next->data))
-			{
-				ft_rra(a);
-				ft_sa(a);
-			}
-			else if (p_a->data > p_a->next->data && p_a->data < p_a->next->next->data)
-			{
-				ft_sa(a);
-			}
-			else if (p_a->data < p_a->next->data && p_a->data > p_a->next->next->data)
-			{
-				ft_rra(a);
-			}
-			else if (p_a->data > p_a->next->data && p_a->next->data < p_a->next->next->data)
-			{
-				ft_ra(a);
-			}
-		}
-	}
+		move_list(a);
 	else if (count_list(*a) > 3)
 	{
 		num_barato = ft_num_barato(a, b);
