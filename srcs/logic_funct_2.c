@@ -19,7 +19,7 @@ int	get_stack_b_step_2(int nbr, t_list *head)
 	int		index_node;
 
 	p_b = head;
-	target = 1000;
+	target = INT_MAX;
 	while (p_b)
 	{
 		if (p_b->data > nbr)
@@ -29,11 +29,13 @@ int	get_stack_b_step_2(int nbr, t_list *head)
 		}
 		p_b = p_b->next;
 	}
-	if (target != 0)
+	if (target != INT_MAX)
 	{
 		index_node = find_node_index(head, target);
 		return (move_rot_or_rrot(head, target, index_node));
 	}
+	else
+		return (move_rot_or_rrot_4(head, target, 0));
 	return (0);
 }
 
@@ -57,7 +59,7 @@ void	move_stack_b_step_2(int nbr, int m_b, t_list **a)
 	int		target;
 
 	p_b = *a;
-	target = 1000;
+	target = INT_MAX;
 	while (p_b)
 	{
 		if (p_b->data > nbr)

@@ -48,7 +48,7 @@ int	get_stack_b_step(int nbr, t_list *head)
 	int		index_node;
 
 	p_b = head;
-	target = 0;
+	target = INT_MIN;
 	while (p_b)
 	{
 		if (p_b->data < nbr)
@@ -58,7 +58,7 @@ int	get_stack_b_step(int nbr, t_list *head)
 		}
 		p_b = p_b->next;
 	}
-	if (target != 0)
+	if (target != INT_MIN)
 	{
 		index_node = find_node_index(head, target);
 		return (move_rot_or_rrot(head, target, index_node));
@@ -88,7 +88,7 @@ void	move_stack_b_step(int nbr, int m_b, t_list **b)
 	int		target;
 
 	p_b = *b;
-	target = 0;
+	target = INT_MIN;
 	while (p_b)
 	{
 		if (p_b->data < nbr)
@@ -100,7 +100,7 @@ void	move_stack_b_step(int nbr, int m_b, t_list **b)
 	}
 	while (m_b != 0)
 	{
-		if (target != 0)
+		if (target != INT_MIN)
 			move_rot_or_rrot_3(target, b);
 		else
 		{

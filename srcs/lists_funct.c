@@ -68,7 +68,7 @@ int	count_list(t_list *head)
 	}
 	return (i);
 }
-
+/*
 void	print_list(t_list *head)
 {
 	while (head != NULL)
@@ -79,3 +79,4 @@ void	print_list(t_list *head)
 		head = head->next;
 	}
 }
+*/

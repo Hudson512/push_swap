@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 # include <limits.h>
 
 typedef struct node
@@ -46,6 +45,7 @@ int		find_min(t_list *head);
 int		checker_order_list_2(t_list *head);
 int		move_rot_or_rrot(t_list *head, int target, int index_node);
 int		move_rot_or_rrot_2(t_list *head, int target, int index_node);
+int		move_rot_or_rrot_4(t_list *head, int target, int index_node);
 void	screening_funct(t_list **a, t_list **b, int value_max, int value_min);
 void	move_rot_or_rrot_3(int target, t_list **b);
 void	move_list(t_list **a);
